@@ -1,6 +1,8 @@
+import TaskInput from "@/components/taskInput";
 import { useState } from "react";
 import { StatusBar, Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 
 export default function Index() {
   const [tasks, setTasks] = useState([]);
@@ -32,7 +34,7 @@ export default function Index() {
   };
 
   const editTask = (taskId, newText) => {
-    if (newText.trim().lenght > 0) {
+    if (newText.trim().length > 0) {
       setTasks(tasks.map(task => 
         task.id === taskId
           ? { ...task, text: newText.trim() }
@@ -54,6 +56,12 @@ export default function Index() {
         <Text style={styles.headerSubtitle}>
           {completedTasks} of {totalTasks} completed
         </Text>
+      </View>
+
+      <TaskInput onAddTask={addTask} />
+
+      <View>
+        
       </View>
     </SafeAreaView>
   );
