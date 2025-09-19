@@ -1,0 +1,1 @@
+A simple and intuitive task manager mobile application built with React Native and Expo.
