@@ -1,4 +1,5 @@
 import TaskInput from "@/components/taskInput";
+import TaskItem from "@/components/taskItem";
 import { useState } from "react";
 import { StatusBar, Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -60,8 +61,28 @@ export default function Index() {
 
       <TaskInput onAddTask={addTask} />
 
-      <View>
-        
+      <View style={styles.taskContainer}>
+        {tasks.length === 0 ? (
+          <View style={styles.emptyContainer}>
+            <Text style={styles.emptyText}>No tasks yet!</Text>
+            <Text style={styles.emptySubtext}>Add a task above to get started</Text>
+          </View>
+        ) : (
+          <FlatList
+            data={tasks}
+            keyExtarctor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <TaskItem
+                task={item}
+                onToggle={toggleTask}
+                onDelete={deleteTask}
+                onEdit={editTask}
+              />
+            )}
+            showVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listContent}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
@@ -96,4 +117,17 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
   },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 100,
+  },
+  emptyText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#9e9e9e',
+    marginBottom: 8,
+  },
+  
 });
