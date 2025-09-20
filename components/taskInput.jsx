@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Alert, TextInput, TouchableOpacity, View, StyleSheet, Text } from "react-native";
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 const TaskInput = ({ onAddTask }) => {
     const [taskText, setTaskText] = useState('');
@@ -40,7 +41,7 @@ const TaskInput = ({ onAddTask }) => {
                     onPress={handleAddTask}
                     activeOpacity={0.8}
                 >
-                    <Text style={styles.addButtonText}>+</Text>
+                    <FontAwesome6 name="add" style={styles.addButtonText} />
                 </TouchableOpacity>
             </View>
 
