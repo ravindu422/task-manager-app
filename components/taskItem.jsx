@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Animated, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import AntDesign from '@expo/vector-icons/AntDesign';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 
 const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
@@ -73,7 +75,7 @@ const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
                     onPress={handleToggle}
                     activeOpacity={0.8}
                 >
-                    {task.completed && <Text style={styles.checkmark}>✓</Text>}
+                    {task.completed && <AntDesign name="check" style={styles.checkmark} />}
                 </TouchableOpacity>
                 <View style={styles.taskContent}>
                     {isEditing ? (
@@ -106,14 +108,14 @@ const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
                             onPress={handleEdit}
                             activeOpacity={0.7}
                         >
-                            <Text style={styles.editButtonText}>✏️</Text>
+                            <AntDesign name="edit" style={styles.editButtonText} />
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.deleteButton}
                             onPress={handleDelete}
                             activeOpacity={0.7}
                         >
-                           <Text style={styles.deleteButtonText}>🗑️</Text> 
+                           <MaterialIcons name="delete" style={styles.deleteButtonText} />
                         </TouchableOpacity>
                     </View>
                 ) : (
@@ -123,14 +125,14 @@ const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
                             onPress={handleSaveEdit}
                             activeOpacity={0.7}
                         >
-                            <Text style={styles.saveButtonText}>✓</Text>
+                            <AntDesign name="save" style={styles.saveButtonText}/>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.cancelButton}
                             onPress={handleCancelEdit}
                             activeOpacity={0.7}
                         >
-                            <Text style={styles.cancelButtonText}>✗</Text>
+                            <MaterialIcons name="cancel" style={styles.cancelButtonText} />
                         </TouchableOpacity>
                     </View>
                 )}
