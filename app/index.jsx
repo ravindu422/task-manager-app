@@ -1,7 +1,7 @@
-import TaskInput from "@/components/taskInput";
-import TaskItem from "@/components/taskItem";
+import TaskInput from "../components/taskInput";
+import TaskItem from "../components/taskItem";
 import { useState } from "react";
-import { StatusBar, Text, View, StyleSheet } from "react-native";
+import { StatusBar, Text, View, StyleSheet, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
@@ -10,7 +10,7 @@ export default function Index() {
   const [taskIdCounter, setTaskIdCounter] = useState(1);
 
   const addTask = (taskText) => {
-    if (taskText.trim().lenght > 0) {
+    if (taskText.trim().length > 0) {
       const newTask = {
         id: taskIdCounter,
         text: taskText.trim(),
@@ -70,7 +70,7 @@ export default function Index() {
         ) : (
           <FlatList
             data={tasks}
-            keyExtarctor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <TaskItem
                 task={item}
@@ -79,7 +79,7 @@ export default function Index() {
                 onEdit={editTask}
               />
             )}
-            showVerticalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContent}
           />
         )}

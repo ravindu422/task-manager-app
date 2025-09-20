@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Animated, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { Alert, Animated, StyleSheet, TextInput, TouchableOpacity, Text, View } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
@@ -48,7 +48,7 @@ const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
     const handleDelete = () => {
         Alert.alert(
             'Delete task', 'Are you sure you want to delete this task?',
-            [{ text: 'Cancel', style: 'cancel' }, { text: 'Delete', style: 'desctructive', onPress: () =>onDelete(task.id) },]
+            [{ text: 'Cancel', style: 'cancel' }, { text: 'Delete', style: 'destructive', onPress: () =>onDelete(task.id) },]
         );
     };
 
@@ -68,7 +68,7 @@ const TaskItem = ({ task, onToggle, onDelete, onEdit }) => {
     };
 
     return (
-        <Animated.View style={[styles.conatiner, { transform: [{ scale: scaleValue }] }]}>
+        <Animated.View style={[styles.container, { transform: [{ scale: scaleValue }] }]}>
             <View style={styles.taskItem}>
                 <TouchableOpacity
                     style={[styles.checkbox, task.completed && styles.checkboxCompleted]}
@@ -231,13 +231,13 @@ const styles = StyleSheet.create({
         width: 36,
         height: 36,
         borderRadius: 18,
-        backrgroundColor: '#4CAF50',
+        backgroundColor: '#4CAF50',
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 8,
     },
     cancelButton: {
-        widht: 36,
+        width: 36,
         height: 36,
         borderRadius: 18,
         backgroundColor: '#f44336',
@@ -246,9 +246,11 @@ const styles = StyleSheet.create({
     },
     editButtonText: {
         fontSize: 14,
+        color: 'white',
     },
     deleteButtonText: {
         fontSize: 14,
+        color: 'White',
     },
     saveButtonText: {
         color: 'white',
