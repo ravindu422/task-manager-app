@@ -129,5 +129,12 @@ const styles = StyleSheet.create({
     color: '#9e9e9e',
     marginBottom: 8,
   },
-  
+  emptySubtext: {
+    fontSize: 16,
+    color: '#bdbdbd',
+    textAlign: 'center',
+  },
+  listContent: {
+    paddingVertical: 20,
+  },
 });
